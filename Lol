@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assistant</title>
+  <style>
+    #chat-container {
+      width: 300px;
+      margin: 50px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<div id="chat-container">
+  <div id="chat-box"></div>
+  <input type="text" id="user-input" placeholder="Type a message...">
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+const chatBox = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+
+function sendMessage() {
+  const userMessage = userInput.value;
+  displayMessage(userMessage, 'user');
+  
+  // Process user input (replace this with your AI logic)
+  const aiResponse = processUserInput(userMessage);
+  
+  displayMessage(aiResponse, 'ai');
+  userInput.value = '';
+}
+
+function displayMessage(message, sender) {
+  const messageElement = document.createElement('div');
+  messageElement.className = sender;
+  messageElement.innerHTML = `<strong>${sender.charAt(0).toUpperCase()}: </strong>${message}`;
+  chatBox.appendChild(messageElement);
+}
+
+function processUserInput(userInput) {
+  // Basic example: Echo user input
+  return `You said: ${userInput}`;
+}
+
+// Voice activation logic (replace this with a real voice recognition library)
+function startVoiceActivation() {
+  alert('Voice activation started. Speak clearly.');
+}
+
+function stopVoiceActivation() {
+  alert('Voice activation stopped.');
+}
+</script>
+
+</body>
+</html>
